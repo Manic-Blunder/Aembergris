@@ -2,12 +2,12 @@ class LodgesController < ApplicationController
 
   # GET /lodges
   def index
-    Lodge.all
+    render json: Lodge.all
   end
 
   # GET /lodges/:id
   def show
-    Lodge.find params[:id]
+    render json: Lodge.find(params[:id])
   end
 
   # def new - As this action is only to render a view, it is not important for the API

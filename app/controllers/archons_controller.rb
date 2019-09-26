@@ -3,13 +3,13 @@ class ArchonsController < ApplicationController
   # GET lodges/:lodge_id/archons
   def index
     @lodge = Lodge.find params[:lodge_id]
-    @archons = Lodge.archons
+    render json: @lodge.archons
   end
 
   # GET lodges/:lodge_id/archons/:id
   def show
     @lodge = Lodge.find params[:lodge_id]
-    @archon = @lodge.archons.find params[:id]
+    render json: @lodge.archons.find(params[:id])
   end
 
   # POST lodges/:lodge_id/archons/
