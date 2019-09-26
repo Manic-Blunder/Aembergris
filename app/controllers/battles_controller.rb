@@ -14,13 +14,18 @@ class BattlesController < ApplicationController
 
   # POST lodges/:lodge_id/battles
   def create
-    # make a new battle based on the post
+    @lodge = Lodge.find params[:lodge_id]
+    @battle = @lodge.battles.create(battle_params)
   end
 
   # DELETE lodges/:lodge_id/battles/:id
   def delete
     @lodge = lodge.find params[:lodge_id]
     @lodge.battles.find(params[:id]).destroy
+  end
+
+  def battle_params
+    params.require(:battle)
   end
 
 end

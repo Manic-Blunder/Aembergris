@@ -23,4 +23,8 @@ class ArchonsController < ApplicationController
     @lodge.archons.find(params[:id]).destroy
   end
 
+  def import(import_link)
+
+  end
+
 end
