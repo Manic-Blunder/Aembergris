@@ -5,7 +5,7 @@ class CreateArchons < ActiveRecord::Migration[6.0]
       t.string :uuid
       t.integer :chains
       t.string :color
-      t.references :lodge, null: false, foreign_key: true
+      t.belongs_to :lodge, null: false, foreign_key: true
     end
   end
 end
