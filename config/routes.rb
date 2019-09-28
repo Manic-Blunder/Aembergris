@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'authenticate', to: 'authentication#authenticate'
+
   resources :lodges do
     resources :archons
     resources :battles

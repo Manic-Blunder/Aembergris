@@ -23,8 +23,12 @@ class ArchonsController < ApplicationController
     @lodge.archons.find(params[:id]).destroy
   end
 
+  # @param [Object] import_link
   def import(import_link)
-
+    if import_link.include? 'https://www.keyforgegame.com/deck-details/'
+      import_link.slice! 'https://www.keyforgegame.com/deck-details/'
+      ImportArchon.call(import_link)
+    end
   end
 
 end
