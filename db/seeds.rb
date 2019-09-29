@@ -15,3 +15,8 @@ House.create name: :mars, icon_link: 'https://cdn.keyforgegame.com/media/houses/
 House.create name: :sanctum, icon_link: 'https://cdn.keyforgegame.com/media/houses/Sanctum_lUWPG7x.png'
 House.create name: :shadows, icon_link: 'https://cdn.keyforgegame.com/media/houses/Shadows_z0n69GG.png'
 House.create name: :untamed, icon_link: 'https://cdn.keyforgegame.com/media/houses/Untamed_bXh9SJD.png'
+
+User.create! email: 'thegnerg@gmail.com', password: 'alan', password_confirmation: 'alan'
+User.create! email: 'geisslecar@gmail.com', password: 'clyde', password_confirmation: 'clyde'
+User.create! email: 'pestrelig@gmail.com', password: 'kathryn', password_confirmation: 'kathryn'
+User.create! email: 'warnerj999@gmail.com', password: 'mathew', password_confirmation: 'mathew'
