@@ -12,24 +12,27 @@
 
 ActiveRecord::Schema.define(version: 2019_09_27_203140) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "archons", force: :cascade do |t|
     t.string "name"
     t.string "uuid"
     t.integer "chains"
     t.string "color"
-    t.integer "lodge_id", null: false
+    t.bigint "lodge_id", null: false
     t.index ["lodge_id"], name: "index_archons_on_lodge_id"
   end
 
   create_table "archons_houses", id: false, force: :cascade do |t|
-    t.integer "archon_id", null: false
-    t.integer "house_id", null: false
+    t.bigint "archon_id", null: false
+    t.bigint "house_id", null: false
     t.index ["archon_id", "house_id"], name: "index_archons_houses_on_archon_id_and_house_id"
     t.index ["house_id", "archon_id"], name: "index_archons_houses_on_house_id_and_archon_id"
   end
 
   create_table "battles", force: :cascade do |t|
-    t.integer "lodge_id", null: false
+    t.bigint "lodge_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lodge_id"], name: "index_battles_on_lodge_id"
