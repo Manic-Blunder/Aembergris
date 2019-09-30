@@ -4,12 +4,12 @@ class JsonWebToken
     # for authenticating user and generating token
     def encode(payload, exp = 24.hours.from_now)
       payload[:exp] = exp.to_i
-      JWT.encode(payload, Rails.application.secrets.secret_key_base)
+      JWT.encode(payload, (Rails.application.secrets.secret_key_base || ENV['SECRET_KEY_BASE']))
     end
 
     # for check if the token is correct
     def decode(token)
-      body = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
+      body = JWT.decode(token, (Rails.application.secrets.secret_key_base || ENV['SECRET_KEY_BASE']))[0]
       HashWithIndifferentAccess.new body
     end
   end

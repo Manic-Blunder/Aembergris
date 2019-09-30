@@ -21,4 +21,4 @@ User.create! email: 'geisslecar@gmail.com', password: 'clyde', password_confirma
 User.create! email: 'pestrelig@gmail.com', password: 'kathryn', password_confirmation: 'kathryn'
 User.create! email: 'warnerj999@gmail.com', password: 'mathew', password_confirmation: 'mathew'
 
-# curl -H "Content-Type: application/json" -X POST -d '{"email":"thegnerg@mail.com","password":"alan"}' http://localhost:3000/authenticate
+# curl -H "Content-Type: application/json" -X POST -d '{"email":"thegnerg@gmail.com","password":"alan"}' http://localhost:3000/authenticate
