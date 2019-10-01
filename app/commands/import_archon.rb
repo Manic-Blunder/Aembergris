@@ -6,7 +6,7 @@ class ImportArchon
   end
 
   def call
-    parse_archon(call_keyforge_api)&.save
+    parse_archon(call_keyforge_api)
   end
 
   private
@@ -30,7 +30,7 @@ class ImportArchon
       archon_response['data']['_links']['houses'].each do |house_name|
         archon.houses << House.find_by_name(house_name.downcase)
       end
-      archon
+      archon.save
     end
     nil
   end
