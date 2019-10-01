@@ -14,21 +14,17 @@ class ArchonsController < ApplicationController
 
   # POST lodges/:lodge_id/archons/
   def create
-    #   This will actually call the import logic
+    import_link = params[:import_link]
+    if import_link.include? 'https://www.keyforgegame.com/deck-details/'
+      import_link.slice! 'https://www.keyforgegame.com/deck-details/'
+      ImportArchon.call(import_link)
+    end
   end
 
   # DELETE lodges/:lodge_id/archons/:id
   def delete
     @lodge = Lodge.find params[:lodge_id]
     @lodge.archons.find(params[:id]).destroy
-  end
-
-  # @param [Object] import_link
-  def import(import_link)
-    if import_link.include? 'https://www.keyforgegame.com/deck-details/'
-      import_link.slice! 'https://www.keyforgegame.com/deck-details/'
-      ImportArchon.call(import_link)
-    end
   end
 
 end
