@@ -21,6 +21,8 @@ class ArchonsController < ApplicationController
   def import
     puts 'THE PARAMS ARE -------------------------------------------'
     puts params
+    import_link = (JSON.parse(params[:_json]))['import_link']
+    puts import_link
     # import_link = params[:import_link]
     # # import_link = request.body.read['import_link']
     # if import_link.include? 'https://www.keyforgegame.com/deck-details/'
