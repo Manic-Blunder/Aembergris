@@ -7,7 +7,8 @@ class LodgesController < ApplicationController
 
   # GET /lodges/:id
   def show
-    render json: Lodge.find(params[:id])
+    lodge = Lodge.find(params[:id])
+    render json: lodge.to_json(include: [:archons])
   end
 
   # def new - As this action is only to render a view, it is not important for the API
