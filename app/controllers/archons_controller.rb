@@ -19,8 +19,8 @@ class ArchonsController < ApplicationController
   end
 
   # @param [Object] import_link
-  def import
-    import_link = params[:import_link]
+  def import(import_link)
+    # import_link = params[:import_link]
     # import_link = request.body.read['import_link']
     if import_link.include? 'https://www.keyforgegame.com/deck-details/'
       import_link.slice! 'https://www.keyforgegame.com/deck-details/'
