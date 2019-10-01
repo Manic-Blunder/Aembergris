@@ -21,7 +21,8 @@ class ArchonsController < ApplicationController
   def import
     puts 'THE PARAMS ARE -------------------------------------------'
     puts params
-    import_link = params[:_json].slice('import_link=')
+    import_link = params[:_json]
+    import_link.slice('import_link=')
     puts import_link
     ImportArchon.call(import_link)
     # end
