@@ -6,8 +6,27 @@
       </div>
       <div class="archon-houses col">
         <% archon.houses.each do |house| %>
-          <%= image_tag house.icon_link %>
+          <span class="archon-house-logo"><%= image_tag house.icon_link %></span>
         <% end %>
+        <span>|</span>
+        <span class="archon-chains">CHNS</span>
+      </div>
+    </div>
+    <div class="archon-info row">
+      <div class="col">
+        WINS: <%= archon.wins %>
+      </div>
+      <div class="col">
+        LOSSES: <%= archon.losses %>
+      </div>
+      <div class="col">
+        SAS: <%= archon.sas %>
+      </div>
+      <div class="col">
+        AERC: <%= archon.aerc %>
+      </div>
+      <div class="col">
+        RANKY: <%= archon.ranky %>
       </div>
     </div>
   </div>
