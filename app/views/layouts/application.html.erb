@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aembergris</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div class="banner-wrapper">
+  <div class="banner">
+    Aembergris
+  </div>
+<!--  <div class="banner-nav">-->
+<!--    We may use this for a navigation bar at a later time-->
+<!--  </div>-->
+</div>
+<div class="content">
+  <%= yield %>
+</div>
+</body>
+</html>

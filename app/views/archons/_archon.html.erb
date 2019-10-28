@@ -1,0 +1,14 @@
+<% if archon.uuid %>
+  <div class="archon-wrapper">
+    <div class="archon-header">
+      <div class="archon-name">
+        <%= archon.name %>
+      </div>
+      <div class="archon-houses">
+        <% archon.houses.each do |house| %>
+          <%= image_tag house.icon_link %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
