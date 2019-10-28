@@ -1,6 +1,10 @@
-<%= form_with model: [@lodge, @lodge.archons.build], local: true do |form| %>
-  <p>
-    <%= form.text_field :import_link %>
-    <%= form.submit value: 'Import Archon' %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col">
+    <%= form_with model: [@lodge, @lodge.archons.build], local: true do |form| %>
+      <p>
+        <%= form.text_field :import_link %>
+        <%= form.submit value: 'Import Archon' %>
+      </p>
+    <% end %>
+  </div>
+</div>
