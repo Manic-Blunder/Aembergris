@@ -24,11 +24,18 @@ class ImportArchon
   # @param [hash] archon_response
   # @return [Archon]
   def parse_archon(archon_response)
-    lodge_id = 1  #params[:lodge_id]
+    lodge_id = 1 #params[:lodge_id]
     unless Archon.exists? uuid: archon_response['data']['id']
       archon = Archon.new name: archon_response['data']['name'], uuid: archon_response['data']['id'], lodge_id: lodge_id, color: pick_color
       archon_response['data']['_links']['houses'].each do |house_name|
         archon.houses << House.find_by_name(house_name.downcase)
+        archon.wins = 0
+        archon.losses = 0
+        archon.sas = 0
+        archon.aerc = 0
+        archon.ranky = 0
+        archon.chains = 0
+        archon.win_streaking = false
       end
       archon.save
     end

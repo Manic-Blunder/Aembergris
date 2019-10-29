@@ -18,8 +18,14 @@ ActiveRecord::Schema.define(version: 2019_09_27_203140) do
   create_table "archons", force: :cascade do |t|
     t.string "name"
     t.string "uuid"
-    t.integer "chains"
     t.string "color"
+    t.integer "chains"
+    t.integer "wins"
+    t.integer "losses"
+    t.integer "sas"
+    t.integer "aerc"
+    t.integer "ranky"
+    t.boolean "win_streaking"
     t.bigint "lodge_id", null: false
     t.index ["lodge_id"], name: "index_archons_on_lodge_id"
   end
@@ -33,8 +39,12 @@ ActiveRecord::Schema.define(version: 2019_09_27_203140) do
 
   create_table "battles", force: :cascade do |t|
     t.bigint "lodge_id", null: false
+    t.bigint "archon_one_id"
+    t.bigint "archon_two_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["archon_one_id"], name: "index_battles_on_archon_one_id"
+    t.index ["archon_two_id"], name: "index_battles_on_archon_two_id"
     t.index ["lodge_id"], name: "index_battles_on_lodge_id"
   end
 
@@ -60,5 +70,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_203140) do
   end
 
   add_foreign_key "archons", "lodges"
+  add_foreign_key "battles", "archons", column: "archon_one_id"
+  add_foreign_key "battles", "archons", column: "archon_two_id"
   add_foreign_key "battles", "lodges"
 end

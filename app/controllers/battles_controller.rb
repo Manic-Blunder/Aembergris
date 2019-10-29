@@ -9,7 +9,8 @@ class BattlesController < ApplicationController
   # GET lodges/:lodge_id/battles/:id
   def show
     @lodge = Lodge.find params[:lodge_id]
-    render json: @lodge.battles.find(params[:id])
+    @battle = @lodge.battles.find(params[:id])
+    @battle.archon_one
   end
 
   # POST lodges/:lodge_id/battles
